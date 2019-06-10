@@ -10,14 +10,27 @@ _강조2_
 __강조4__
 
 
+
 1. 김민준
 2. 김민준
 3. 김민준
    1. 김민준
    2. 김민준
       1. 김민준
+
+
    
 
    ![1111](./image/1111.jpg)
 
-   
+
+'''c
+#include <stdio.h>
+int main()
+{
+    printf("Hello, world!");
+    return 0;
+
+}
+
+'''
