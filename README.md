@@ -1,2 +1,0 @@
-"# MDS_KMJ" 
-opkopmkiomjimjimio
