@@ -1,0 +1,29 @@
+$ su      # Need privilege to set real-time scheduling policies
+Password:
+# ./a.out -mf10 -ar20 -i e
+Scheduler settings of main thread
+    policy=SCHED_FIFO, priority=10
+
+Scheduler settings in 'attr'
+    policy=SCHED_RR, priority=20
+    inheritsched is EXPLICIT
+
+Scheduler attributes of new thread
+    policy=SCHED_RR, priority=20
+In the above output, one can see that the scheduling policy and priority were taken from the values specified in the thread attributes object.
+
+The next run is the same as the previous, except that the inherit scheduler attribute is set to PTHREAD_INHERIT_SCHED, meaning that threads created using the thread attributes object should ignore the scheduling attributes specified in the attributes object and instead take their scheduling attributes from the creating thread.
+
+# ./a.out -mf10 -ar20 -i i
+Scheduler settings of main thread
+    policy=SCHED_FIFO, priority=10
+
+Scheduler settings in 'attr'
+    policy=SCHED_RR, priority=20
+    inheritsched is INHERIT
+
+Scheduler attributes of new thread
+    policy=SCHED_FIFO, priority=10
+In the above output, one can see that the scheduling policy and priority were taken from the creating thread, rather than the thread attributes object.
+
+Note that if we had omitted the -i i option, the output would have been the same, since PTHREAD_INHERIT_SCHED is the default for the inherit scheduler attribute.
