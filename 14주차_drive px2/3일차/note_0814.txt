@@ -1,0 +1,23 @@
+원하는 위치에서 
+1. scp nvidia@192.168.105.56:/home/nvidia/iitp1/canbus_acctest.tar.gz ./
+2. tar xzf canbus_acctest.tar.gz 
+* CMakeList 의 프로그램 이름 변경 
+3. ~/iitp1$ sudo cp -rf ./canbus_acctest /usr/local/driveworks-0.6/samples-class/src/
+cd /usr/local/driveworks-0.6/samples-class/src/
+4. sudo vim ../CMakeLists.txt
+    67 라인에서 canbus_acctest 폴더명 추가
+ cd canbus_acctest/
+5.  sudo vim CMakeLists.txt 프로그램 명칭 변 경 확 인 
+ 
+6. build-px 에서 크로스컴파일 해야됨 그래서 그 빌드로 가서 ! sudo make 후에 sudo make install 까지 하여 bin파일에 생성됐는지 
+변경되었는지 확인!
+
+
+todo sol.png 파일에 코드하기
+
+px2에 보내 기
+sudo scp KBJ_acctest nvidia@192.168.105.56:/home/nvidia/iitp1/
+
+px에서 가져오기
+sudo scp nvidia@192.168.105.56:/home/nvidia/iitp1/note_0814.txt ./
+
